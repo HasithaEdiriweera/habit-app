@@ -1,70 +1,84 @@
-# Getting Started with Create React App
+# README
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple application that demonstrates how to integrate React frontend with a Rails backend, using Slack webhook integration to send notifications, and testing the backend using Minitest.
+Rails with Rake, Slack notifiern and Minites
 
-## Available Scripts
+# Prerequisites
 
-In the project directory, you can run:
+- Ruby 3.0.2 or later
 
-### `npm start`
+- Rails 6.1.3 or later
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Node.js 14.0 or later
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- NPM 6.14 or later
 
-### `npm test`
+# BackEnd Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Clone the repository to your local machine
 
-### `npm run build`
+https://github.com/HasithaEdiriweera/habbit_app_be
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Install Ruby dependencies by running bundle install
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Set up the database by running rails db:setup
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Start the Rails server by running rails s
 
-### `npm run eject`
+# FrontEnd Installation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Clone the repository or download the ZIP file and extract it.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    https://github.com/HasithaEdiriweera/habit-app
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. Open a terminal and navigate to the project directory.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. Run the command npm install to install the required dependencies.
 
-## Learn More
+4. Run the command for chakra-ui, npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+5. Run the command npm start to start the development server.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+6. Open your web browser and go to http://localhost:3000.
 
-### Code Splitting
+# USAGE
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The application has a simple user interface for creating and managing habits. You can create a new habit by clicking the "Add Habit" button, and delete/edit a habit by clicking the "Delete" or "Edit" icon in React frontend.
 
-### Analyzing the Bundle Size
+Each 2 hours of time notification is sent to the Slack channel via webhook integration.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+# Configuration
 
-### Making a Progressive Web App
+- Fixed token configured as an environment variable 'AUTHENTICATION_TOKEN'
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Slack webhook integration
 
-### Advanced Configuration
+- To configure Slack webhook integration, follow these steps:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+1. Create a new Slack app and enable incoming webhooks.
 
-### Deployment
+2. Create a new webhook for the app and note down the webhook URL.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+3. Set the webhook URL as an environment variable named SLACK_WEBHOOK_URL.
 
-### `npm run build` fails to minify
+- To run the slack notifications : rake notifications:send_random_notification
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Rails configuration
+
+The Rails server runs on port 3001 by default. To change the port, set the PORT environment variable.
+
+The Rails application uses a PostgreSQL database by default. To use a different database, update the database.yml file.
+
+# Testing
+
+The backend is tested using Minitest. To run the tests, use the following command:
+
+rake test
+
+# References
+
+- React (https://reactjs.org/)
+- Chakra UI (https://chakra-ui.com/)
+- Axios (https://axios-http.com/)
+- Ruby and Rails (https://guides.rubyonrails.org/)
+
